@@ -565,7 +565,7 @@ const PriceEstimator = (function() {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ ...emailData, _subject: 'Nouvelle demande estimateur - jk-couvreur-28.fr', _template: 'table', _captcha: 'false' })
+                    body: JSON.stringify({ ...emailData, _subject: 'Nouvelle demande estimateur - couvreur-28.com', _template: 'table', _captcha: 'false' })
                 });
                 
                 console.log('[ESTIMATEUR] Réponse reçue, status:', response.status);
@@ -654,7 +654,7 @@ const PriceEstimator = (function() {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ ...emailData, _subject: 'Nouvelle demande estimateur - jk-couvreur-28.fr', _template: 'table', _captcha: 'false' })
+                    body: JSON.stringify({ ...emailData, _subject: 'Nouvelle demande estimateur - couvreur-28.com', _template: 'table', _captcha: 'false' })
                 });
                 
                 console.log('[ESTIMATEUR] Réponse reçue, status:', response.status);
