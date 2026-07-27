@@ -59,7 +59,7 @@ const PriceEstimator = (function() {
     interventionCities.forEach(city => {
         LOCATION_FACTORS[city] = 1.00;
     });
-    LOCATION_FACTORS[`Autre commune ${deptDetOf} ${dept}`] = 1.00;
+    LOCATION_FACTORS[`Autre commune ${deptDetOf}${deptDetOf.endsWith("'")?'':' '}${dept}`] = 1.00;
 
     const ACCESS_FACTOR = {
         "Accès facile":                 1.00,
@@ -135,7 +135,7 @@ const PriceEstimator = (function() {
         const slug = 'city-' + index;
         VALUE_TO_LABEL[slug] = city;
     });
-    VALUE_TO_LABEL['autre'] = `Autre commune ${deptDetOf} ${dept}`;
+    VALUE_TO_LABEL['autre'] = `Autre commune ${deptDetOf}${deptDetOf.endsWith("'")?'':' '}${dept}`;
 
     function initEstimator() {
         const dept = window.BRAND_DEPARTMENT || 'Vendée';
@@ -146,8 +146,8 @@ const PriceEstimator = (function() {
             <div id="price-estimator" class="estimator-widget">
                 <div class="estimator-card">
                     <div class="estimator-header">
-                        <h3>Quel est le prix d'un couvreur ${deptDet} ${dept} ?</h3>
-                        <p class="estimator-subtitle">Estimation personnalisée basée sur les tarifs locaux ${deptDet} ${dept} (${deptNum})</p>
+                        <h3>Quel est le prix d'un couvreur ${deptDet}${deptDet.endsWith("'")?'':' '}${dept} ?</h3>
+                        <p class="estimator-subtitle">Estimation personnalisée basée sur les tarifs locaux ${deptDet}${deptDet.endsWith("'")?'':' '}${dept} (${deptNum})</p>
                         <div class="estimator-badge">
                             <span>✅</span> Réponse immédiate • Tarifs actuels • Sans démarcharge
                         </div>
@@ -214,7 +214,7 @@ const PriceEstimator = (function() {
         citiesHTML += `
             <button class="estimator-option" data-value="autre">
                 <span class="option-icon">📍</span>
-                <span>Autre commune ${deptDetOf} ${dept}</span>
+                <span>Autre commune ${deptDetOf}${deptDetOf.endsWith("'")?'':' '}${dept}</span>
             </button>`;
 
         const steps = {
@@ -434,7 +434,7 @@ const PriceEstimator = (function() {
                     <h4>Estimation pour ${dept} (${deptNum}) :</h4>
                     <div class="price-range">${result.displayMin} - ${result.displayMax}</div>
                     <p class="result-info">
-                        📍 Tarifs basés sur les spécialistes locaux ${deptDet} ${dept} (${deptNum})<br>
+                        📍 Tarifs basés sur les spécialistes locaux ${deptDet}${deptDet.endsWith("'")?'':' '}${dept} (${deptNum})<br>
                         Estimation indicative — un devis gratuit est recommandé pour un prix précis
                     </p>
                 </div>

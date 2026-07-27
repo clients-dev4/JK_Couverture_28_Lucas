@@ -516,7 +516,7 @@ const hoursFull = window.BRAND_HOURS_FULL || 'Lundi au Dimanche : 8h - 22h';
 
 const FAQ = [
   {
-    q: `Comment choisir un bon artisan couvreur ${deptDet} ${dept} ?`,
+    q: `Comment choisir un bon artisan couvreur ${deptDet}${deptDet.endsWith("'")?'':' '}${dept} ?`,
     a: "Privilégiez un artisan local établi, avec SIRET, assurances valides, avis clients vérifiables et portfolio de réalisations. Demandez toujours un devis détaillé et une attestation décennale."
   },
   {
@@ -525,7 +525,7 @@ const FAQ = [
   },
   {
     q: "Quel est votre délai d'intervention ?",
-    a: `${companyName} intervient rapidement ${deptDet} ${dept} (${deptNum}) et les communes avoisinantes. Disponible ${hoursFull.toLowerCase()}. Contactez-nous au ${phoneNumber}.`
+    a: `${companyName} intervient rapidement ${deptDet}${deptDet.endsWith("'")?'':' '}${dept} (${deptNum}) et les communes avoisinantes. Disponible ${hoursFull.toLowerCase()}. Contactez-nous au ${phoneNumber}.`
   },
   {
     q: "Comment se déroule un chantier ?",
