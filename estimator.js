@@ -526,7 +526,6 @@ const PriceEstimator = (function() {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            console.log('[ESTIMATEUR] Soumission du formulaire');
             
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
@@ -548,10 +547,8 @@ const PriceEstimator = (function() {
                 delai: data.delai
             };
             
-            console.log('[ESTIMATEUR] Données à envoyer:', emailData);
             
             const sendUrl = window.SEND_EMAIL_URL || 'https://formsubmit.co/ajax/contact@jk-couverture.com';
-            console.log('[ESTIMATEUR] Envoi vers:', sendUrl);
             
             try {
                 const submitBtn = form.querySelector('.btn-submit-quote');
@@ -568,24 +565,19 @@ const PriceEstimator = (function() {
                     body: JSON.stringify({ ...emailData, _subject: 'Nouvelle demande estimateur - jk-couvreur-28.fr', _template: 'table', _captcha: 'false' })
                 });
                 
-                console.log('[ESTIMATEUR] Réponse reçue, status:', response.status);
                 
                 // Récupérer la réponse comme texte brut
                 const responseText = await response.text();
-                console.log('[ESTIMATEUR] Texte brut reçu:', responseText.substring(0, 200));
                 
                 // Nettoyer les BOM et espaces en début
                 let cleanText = responseText.replace(/^\uFEFF/, '');
                 cleanText = cleanText.replace(/^[\s\n\r\t\x00\x0B]+/, '');
                 
-                console.log('[ESTIMATEUR] Texte nettoyé:', cleanText.substring(0, 200));
                 
                 // Parser le JSON nettoyé
                 const result = JSON.parse(cleanText);
-                console.log('[ESTIMATEUR] Données JSON:', result);
                 
                 if (result.success) {
-                    console.log('[ESTIMATEUR] Succès!');
                     form.style.display = 'none';
                     successMsg.style.display = 'block';
                     
@@ -593,13 +585,11 @@ const PriceEstimator = (function() {
                         overlay.remove();
                     }, 3000);
                 } else {
-                    console.error('[ESTIMATEUR] Échec:', result.error);
                     alert('Erreur: ' + (result.error || 'Erreur lors de l\'envoi. Veuillez réessayer.'));
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
                 }
             } catch (error) {
-                console.error('[ESTIMATEUR] Erreur réseau/parsing:', error);
                 alert('Erreur lors de l\'envoi. Veuillez réessayer ou nous appeler directement.');
                 const submitBtn = form.querySelector('.btn-submit-quote');
                 submitBtn.disabled = false;
@@ -617,7 +607,6 @@ const PriceEstimator = (function() {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            console.log('[ESTIMATEUR] Soumission du formulaire de contact');
             
             const formData = new FormData(form);
             
@@ -637,11 +626,8 @@ const PriceEstimator = (function() {
                 delai: VALUE_TO_LABEL[estimatorData.delay] || estimatorData.delay || 'Non spécifié'
             };
             
-            console.log('[ESTIMATEUR] Données brutes:', estimatorData);
-            console.log('[ESTIMATEUR] Données à envoyer:', emailData);
             
             const sendUrl = window.SEND_EMAIL_URL || 'https://formsubmit.co/ajax/contact@jk-couverture.com';
-            console.log('[ESTIMATEUR] Envoi vers:', sendUrl);
             
             try {
                 const submitBtn = form.querySelector('.btn-submit-estimator');
@@ -657,24 +643,19 @@ const PriceEstimator = (function() {
                     body: JSON.stringify({ ...emailData, _subject: 'Nouvelle demande estimateur - jk-couvreur-28.fr', _template: 'table', _captcha: 'false' })
                 });
                 
-                console.log('[ESTIMATEUR] Réponse reçue, status:', response.status);
                 
                 // Récupérer la réponse comme texte brut
                 const responseText = await response.text();
-                console.log('[ESTIMATEUR] Texte brut reçu:', responseText.substring(0, 200));
                 
                 // Nettoyer les BOM et espaces en début
                 let cleanText = responseText.replace(/^\uFEFF/, '');
                 cleanText = cleanText.replace(/^[\s\n\r\t\x00\x0B]+/, '');
                 
-                console.log('[ESTIMATEUR] Texte nettoyé:', cleanText.substring(0, 200));
                 
                 // Parser le JSON nettoyé
                 const result = JSON.parse(cleanText);
-                console.log('[ESTIMATEUR] Données JSON:', result);
                 
                 if (result.success) {
-                    console.log('[ESTIMATEUR] Succès!');
                     form.style.display = 'none';
                     successMsg.style.display = 'block';
                     
@@ -683,13 +664,11 @@ const PriceEstimator = (function() {
                         reset();
                     }, 5000);
                 } else {
-                    console.error('[ESTIMATEUR] Échec:', result.error);
                     alert('Erreur: ' + (result.error || 'Erreur lors de l\'envoi. Veuillez réessayer.'));
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
                 }
             } catch (error) {
-                console.error('[ESTIMATEUR] Erreur réseau/parsing:', error);
                 alert('Erreur lors de l\'envoi. Veuillez réessayer ou nous appeler directement.');
                 const submitBtn = form.querySelector('.btn-submit-estimator');
                 const originalText = 'Envoyer ma demande';

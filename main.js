@@ -356,11 +356,8 @@ function createReviewCard(review) {
 
 // Initialiser au chargement
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Nombre d\'avis chargés:', REVIEWS.length);
   if (REVIEWS.length > 0) {
     generateReviewCards();
-  } else {
-    console.error('Aucun avis trouvé dans REVIEWS');
   }
 });
 })();
@@ -754,7 +751,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const reviewsList = document.getElementById('reviews-list');
 
     // Utiliser les avis depuis le fichier JSON
-    console.log('Widget avis - Nombre d\'avis:', REVIEWS.length);
     const star = String.fromCharCode(9733);
     REVIEWS.forEach(review => {
         const initials = review.author_name.split(' ').map(n => n[0]).join('');
@@ -837,6 +833,5 @@ document.addEventListener('DOMContentLoaded', function() {
         stop.setAttribute('style', style);
     });
 
-    console.log('✓ Couleurs de marque appliquées:', PRIMARY_COLOR);
 })();
 })();
