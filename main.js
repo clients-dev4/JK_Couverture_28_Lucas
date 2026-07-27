@@ -678,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
         email: email.value.trim(),
         telephone: telephone.value.trim(),
         message: message.value.trim(),
-        _subject: 'Nouvelle demande de devis - couvreur-28.com',
+        _subject: 'Nouvelle demande de devis - jk-couvreur-28.fr',
         _template: 'table',
         _captcha: 'false'
       };
