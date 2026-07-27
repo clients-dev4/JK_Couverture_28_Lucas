@@ -1157,6 +1157,23 @@ input[name="_honey"]{position:absolute;left:-9999px;width:1px;height:1px;opacity
 .why-choose-desktop{display:block}
 .why-choose-mobile{display:none}
 }
-/* Indicateur +/- de la FAQ : line-height:1 sinon la boite de ligne (24px x 1.6 = 38.4px)
-   depasse le carre de 28px et decale le glyphe malgre le centrage flex */
-.faq-question::after{line-height:1}
+/* Indicateur +/- de la FAQ dessine en CSS et non avec un glyphe de police.
+   Le site n applique aucune police web : le "+" etait rendu par la police
+   systeme, dont les metriques different selon l appareil (Segoe UI, Roboto,
+   San Francisco), d ou un centrage juste sur un ecran et faux sur un autre.
+   Deux barres en degrade centrees a 50% sont geometriques, donc exactes partout. */
+.faq-question::after{
+content:"";
+line-height:1;
+background-color:var(--color-primary);
+background-image:linear-gradient(#fff,#fff),linear-gradient(#fff,#fff);
+background-size:12px 2px,2px 12px;
+background-position:50% 50%,50% 50%;
+background-repeat:no-repeat;
+transition:background-size .3s ease,transform .3s ease
+}
+details.faq-item[open]>.faq-question::after{
+content:"";
+background-size:12px 2px,0 2px;
+transform:none
+}
