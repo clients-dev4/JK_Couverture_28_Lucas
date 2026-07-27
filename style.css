@@ -1180,3 +1180,12 @@ background-position:50% 50%,50% 50%;
 background-repeat:no-repeat;
 transform:none
 }
+
+/* Contraste WCAG AA. Deux corrections signalees par Lighthouse :
+   - .contract-tag : #2563EB sur son fond rgba(37,99,235,.1) donnait 4,49:1,
+     soit 0,01 sous le seuil de 4,5. Passe a #1D4ED8 -> 5,82:1.
+   - .site-footer : le fond #2563EB rendait les liens en blanc 80% a 3,89:1.
+     Fond assombri a #1D4ED8 -> liens 4,89:1, titres 6,70:1, sans toucher a
+     l opacite qui porte l effet de survol. */
+.contract-tag{color:#1D4ED8}
+.site-footer{background:#1D4ED8}
