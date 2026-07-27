@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 (function () {
-document.addEventListener('DOMContentLoaded', function() {
+function initInterventionMap() {
     const CITIES = [
         { name: "Chartres", lat: 48.4469, lon: 1.4888, radius: 20000 },
         { name: "Dreux", lat: 48.7372, lon: 1.3647, radius: 18000 },
@@ -249,6 +249,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.2 });
     observer.observe(mapWrapper);
+}
+document.addEventListener('DOMContentLoaded', function() {
+    var el = document.getElementById('intervention-map');
+    if (!el) return;
+    var loaded = false;
+    function load() {
+        if (loaded) return; loaded = true;
+        var css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+        document.head.appendChild(css);
+        var js = document.createElement('script');
+        js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+        js.onload = initInterventionMap;
+        document.head.appendChild(js);
+    }
+    if (!('IntersectionObserver' in window)) { load(); return; }
+    var io = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) { io.disconnect(); load(); }
+    }, { rootMargin: '300px' });
+    io.observe(el);
 });
 })();
 

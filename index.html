@@ -315,6 +315,32 @@
             ]
         }
     </script>
+<script>
+// Variables globales pour l'estimateur et la FAQ
+window.BRAND_COMPANY_NAME = "Couvreur 28";
+window.BRAND_DEPARTMENT = "Eure-et-Loir";
+window.BRAND_DEPARTMENT_NUMBER = "28";
+window.BRAND_DEPARTMENT_DETERMINER = "dans l\'";
+window.BRAND_PHONE_PRIMARY = "02 34 40 17 88";
+window.BRAND_HOURS_FULL = "Lundi au Samedi: 08h - 22h";
+window.BRAND_RESPONSE_TIME = "24h max";
+window.BRAND_SERVICES = ["Réparation Toiture","Rénovation Toiture","Urgence Réparation Fuite","Nettoyage Toiture","Traitement de Toiture","Isolation Toiture","Pose de Fenêtre de Toit","Gouttières Zinguerie","Charpente","Ravalement de Façade"];
+window.BRAND_SERVICE_EMOJIS = ["🏠","🔧","🚨","💦","🧹","☔","🔩","🌧️","🪜","✨"];
+// 9 villes pour l'estimateur (la 10ème sera "Autre commune dans l'Eure-et-Loir")
+window.BRAND_INTERVENTION_CITIES = [
+    "Chartres",
+    "Dreux",
+    "Châteaudun",
+    "Nogent-le-Rotrou",
+    "Maintenon",
+    "Anet",
+    "Bonneval",
+    "La Loupe",
+    "Voves"
+];
+</script>
+<script defer src="main.js"></script>
+<script defer src="estimator.js"></script>
 </head>
 <body class="home page">
 
@@ -948,9 +974,6 @@
     </div>
 </section>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <section class="zones-section">
     <h2 class="section-title">Nos zones d'intervention autour de Chartres</h2>
     <p class="section-subtitle">Couvreur 28, votre couvreur de proximité dans tout l'Eure-et-Loir (28)</p>
@@ -1420,30 +1443,6 @@
     </div>
 </section>
 
-<script>
-// Variables globales pour l'estimateur et la FAQ
-window.BRAND_COMPANY_NAME = "Couvreur 28";
-window.BRAND_DEPARTMENT = "Eure-et-Loir";
-window.BRAND_DEPARTMENT_NUMBER = "28";
-window.BRAND_DEPARTMENT_DETERMINER = "dans l\'";
-window.BRAND_PHONE_PRIMARY = "02 34 40 17 88";
-window.BRAND_HOURS_FULL = "Lundi au Samedi: 08h - 22h";
-window.BRAND_RESPONSE_TIME = "24h max";
-window.BRAND_SERVICES = ["Réparation Toiture","Rénovation Toiture","Urgence Réparation Fuite","Nettoyage Toiture","Traitement de Toiture","Isolation Toiture","Pose de Fenêtre de Toit","Gouttières Zinguerie","Charpente","Ravalement de Façade"];
-window.BRAND_SERVICE_EMOJIS = ["🏠","🔧","🚨","💦","🧹","☔","🔩","🌧️","🪜","✨"];
-// 9 villes pour l'estimateur (la 10ème sera "Autre commune dans l'Eure-et-Loir")
-window.BRAND_INTERVENTION_CITIES = [
-    "Chartres",
-    "Dreux",
-    "Châteaudun",
-    "Nogent-le-Rotrou",
-    "Maintenon",
-    "Anet",
-    "Bonneval",
-    "La Loupe",
-    "Voves"
-];
-</script>
 
 <section class="map-section" style="margin: 0; padding: 0; position: relative;">
     <div class="map-container" style="margin: 0; padding: 0;">
@@ -1724,9 +1723,6 @@ window.BRAND_INTERVENTION_CITIES = [
         <span class="bottom-nav-label">WhatsApp</span>
     </a>
 </nav>
-
-<script src="main.js"></script>
-<script src="estimator.js"></script>
 </body>
 </html>
 
