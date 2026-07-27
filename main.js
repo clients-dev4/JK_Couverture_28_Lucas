@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })();
 
-// Lightbox pour afficher les images/vidéos en grand
+// Lightbox pour afficher les images en grand
 (function() {
     const lightbox = document.getElementById('gallery-lightbox');
     const lightboxContent = lightbox.querySelector('.lightbox-media-container');
@@ -428,27 +428,26 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLightboxIndex = 0;
     let allMediaItems = [];
 
-    // Collecter toutes les images/vidéos uniques (sans les doublons)
+    // Collecter toutes les images uniques (sans les doublons)
     const uniqueMedia = new Map();
     galleryImages.forEach(media => {
-        const src = media.tagName === 'VIDEO' ? media.querySelector('source').src : media.src;
+        const src = media.src;
         if (!uniqueMedia.has(src)) {
             uniqueMedia.set(src, {
                 src: src,
-                isVideo: media.tagName === 'VIDEO',
                 element: media
             });
         }
     });
     allMediaItems = Array.from(uniqueMedia.values());
 
-    // Ouvrir la lightbox au clic sur une image/vidéo
+    // Ouvrir la lightbox au clic sur une image
     galleryImages.forEach((media, idx) => {
         media.style.cursor = 'pointer';
         media.parentElement.style.cursor = 'pointer';
 
         const clickHandler = () => {
-            const src = media.tagName === 'VIDEO' ? media.querySelector('source').src : media.src;
+            const src = media.src;
             // Trouver l'index dans le tableau unique
             currentLightboxIndex = allMediaItems.findIndex(item => item.src === src);
             openLightbox(currentLightboxIndex);
@@ -468,26 +467,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
-        // Mettre en pause les vidéos
-        const video = lightboxContent.querySelector('video');
-        if (video) video.pause();
     }
 
     function updateLightboxContent() {
         const item = allMediaItems[currentLightboxIndex];
 
-        if (item.isVideo) {
-            lightboxContent.innerHTML = `
-                <video controls autoplay style="max-width: 100%; max-height: 90vh; width: auto; height: auto;">
-                    <source src="${item.src}" type="video/${item.src.split('.').pop()}">
-                    Votre navigateur ne supporte pas les vidéos.
-                </video>
-            `;
-        } else {
-            lightboxContent.innerHTML = `
-                <img src="${item.src}" style="max-width: 100%; max-height: 90vh; width: auto; height: auto;" alt="Image en grand">
-            `;
-        }
+        lightboxContent.innerHTML = `
+            <img src="${item.src}" style="max-width: 100%; max-height: 90vh; width: auto; height: auto;" alt="Image en grand">
+        `;
 
         lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${allMediaItems.length}`;
     }
