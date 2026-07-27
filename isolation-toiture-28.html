@@ -376,26 +376,26 @@
             <h2>Questions fréquentes sur la isolation toiture</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de lancer vos travaux dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">Isolation par l'intérieur ou par l'extérieur ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>L'isolation des combles par l'intérieur est la plus courante et économique. L'isolation par l'extérieur (sarking) est idéale lors d'une réfection de toiture car elle ne réduit pas l'espace habitable.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">Puis-je bénéficier d'aides pour l'isolation ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Oui. En tant qu'entreprise RGE, nous vous ouvrons l'accès à des dispositifs d'aide à la rénovation énergétique. Nous vous accompagnons dans le montage du dossier.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">Combien puis-je économiser ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>Une isolation de toiture performante peut réduire vos factures de chauffage jusqu'à 30 %, tout en améliorant nettement votre confort.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Quel isolant choisir ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>Cela dépend de votre budget, de la configuration et de vos préférences (performance, écologie). Nous vous conseillons parmi la laine de verre, la laine de roche ou les isolants biosourcés.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">L'isolation améliore-t-elle le confort d'été ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Oui, une bonne isolation limite la surchauffe des combles en été et conserve la fraîcheur, en plus de retenir la chaleur en hiver.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Isolation par l'intérieur ou par l'extérieur ?</summary>
+                    <div class="faq-answer"><p>L'isolation des combles par l'intérieur est la plus courante et économique. L'isolation par l'extérieur (sarking) est idéale lors d'une réfection de toiture car elle ne réduit pas l'espace habitable.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Puis-je bénéficier d'aides pour l'isolation ?</summary>
+                    <div class="faq-answer"><p>Oui. En tant qu'entreprise RGE, nous vous ouvrons l'accès à des dispositifs d'aide à la rénovation énergétique. Nous vous accompagnons dans le montage du dossier.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Combien puis-je économiser ?</summary>
+                    <div class="faq-answer"><p>Une isolation de toiture performante peut réduire vos factures de chauffage jusqu'à 30 %, tout en améliorant nettement votre confort.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Quel isolant choisir ?</summary>
+                    <div class="faq-answer"><p>Cela dépend de votre budget, de la configuration et de vos préférences (performance, écologie). Nous vous conseillons parmi la laine de verre, la laine de roche ou les isolants biosourcés.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">L'isolation améliore-t-elle le confort d'été ?</summary>
+                    <div class="faq-answer"><p>Oui, une bonne isolation limite la surchauffe des combles en été et conserve la fraîcheur, en plus de retenir la chaleur en hiver.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -601,20 +601,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>

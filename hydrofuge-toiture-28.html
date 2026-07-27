@@ -347,26 +347,26 @@
             <h2>Questions fréquentes sur la traitement de toiture</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de lancer vos travaux dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">Quelle est la durée d'un traitement hydrofuge ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>Un traitement hydrofuge de qualité protège votre toiture pendant environ 10 ans, selon l'exposition et le type de couverture.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">Traitement curatif ou préventif : quelle différence ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Le curatif élimine les mousses déjà installées, le préventif empêche leur réapparition. Nous combinons généralement les deux pour un résultat optimal.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">L'hydrofuge change-t-il l'aspect de mon toit ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>Il existe des hydrofuges incolores (effet invisible) et des versions colorées qui ravivent la teinte des tuiles. Nous vous conseillons selon votre attente.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Quand réaliser un traitement de toiture ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>Idéalement au printemps ou en automne, par temps sec, pour une bonne pénétration des produits. Nous intervenons toute l'année selon la météo.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">Le traitement remplace-t-il une réparation ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Non : le traitement protège une toiture saine. Si des tuiles sont cassées ou l'étanchéité compromise, une réparation préalable est nécessaire.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Quelle est la durée d'un traitement hydrofuge ?</summary>
+                    <div class="faq-answer"><p>Un traitement hydrofuge de qualité protège votre toiture pendant environ 10 ans, selon l'exposition et le type de couverture.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Traitement curatif ou préventif : quelle différence ?</summary>
+                    <div class="faq-answer"><p>Le curatif élimine les mousses déjà installées, le préventif empêche leur réapparition. Nous combinons généralement les deux pour un résultat optimal.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">L'hydrofuge change-t-il l'aspect de mon toit ?</summary>
+                    <div class="faq-answer"><p>Il existe des hydrofuges incolores (effet invisible) et des versions colorées qui ravivent la teinte des tuiles. Nous vous conseillons selon votre attente.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Quand réaliser un traitement de toiture ?</summary>
+                    <div class="faq-answer"><p>Idéalement au printemps ou en automne, par temps sec, pour une bonne pénétration des produits. Nous intervenons toute l'année selon la météo.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Le traitement remplace-t-il une réparation ?</summary>
+                    <div class="faq-answer"><p>Non : le traitement protège une toiture saine. Si des tuiles sont cassées ou l'étanchéité compromise, une réparation préalable est nécessaire.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -572,20 +572,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>

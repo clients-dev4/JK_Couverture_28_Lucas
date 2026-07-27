@@ -360,26 +360,26 @@
             <h2>Questions fréquentes sur la pose de fenêtre de toit</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de lancer vos travaux dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">Quel type de fenêtre de toit choisir ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>Cela dépend de la pièce, de l'orientation et de vos besoins : rotation, projection, motorisée, avec store intégré... Nous vous conseillons le modèle le plus adapté.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">La pose garantit-elle l'étanchéité ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Oui. La qualité des raccords d'étanchéité est essentielle : nos poses sont réalisées selon les normes du fabricant et bénéficient de la garantie décennale.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">Faut-il une autorisation pour poser une fenêtre de toit ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>Une déclaration préalable de travaux en mairie est généralement nécessaire car cela modifie l'aspect extérieur. Nous vous informons des démarches à prévoir.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Peut-on installer un velux dans une toiture existante ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>Oui, dans la plupart des cas. Nous adaptons l'ouverture de la charpente et de la couverture à votre toiture existante.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">Une fenêtre de toit améliore-t-elle l'isolation ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Les modèles récents offrent d'excellentes performances thermiques et acoustiques. Bien posée, une fenêtre de toit ne crée pas de pont thermique.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Quel type de fenêtre de toit choisir ?</summary>
+                    <div class="faq-answer"><p>Cela dépend de la pièce, de l'orientation et de vos besoins : rotation, projection, motorisée, avec store intégré... Nous vous conseillons le modèle le plus adapté.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">La pose garantit-elle l'étanchéité ?</summary>
+                    <div class="faq-answer"><p>Oui. La qualité des raccords d'étanchéité est essentielle : nos poses sont réalisées selon les normes du fabricant et bénéficient de la garantie décennale.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Faut-il une autorisation pour poser une fenêtre de toit ?</summary>
+                    <div class="faq-answer"><p>Une déclaration préalable de travaux en mairie est généralement nécessaire car cela modifie l'aspect extérieur. Nous vous informons des démarches à prévoir.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Peut-on installer un velux dans une toiture existante ?</summary>
+                    <div class="faq-answer"><p>Oui, dans la plupart des cas. Nous adaptons l'ouverture de la charpente et de la couverture à votre toiture existante.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Une fenêtre de toit améliore-t-elle l'isolation ?</summary>
+                    <div class="faq-answer"><p>Les modèles récents offrent d'excellentes performances thermiques et acoustiques. Bien posée, une fenêtre de toit ne crée pas de pont thermique.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -585,20 +585,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>

@@ -416,26 +416,26 @@
             <h2>Questions fréquentes sur la urgence réparation fuite</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de lancer vos travaux dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">Intervenez-vous le week-end et les jours fériés ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>Oui, notre service d'urgence est disponible 7j/7 dans l'Eure-et-Loir (28) pour les fuites et sinistres nécessitant une intervention rapide.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">Que faire en attendant votre arrivée ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Placez des récipients sous les fuites, coupez l'électricité de la zone touchée si nécessaire, et éloignez les meubles et objets de valeur. Nous vous guidons par téléphone dès votre appel.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">Une bâche provisoire suffit-elle ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>La mise hors d'eau (bâchage) stoppe l'urgence, mais elle est temporaire. Une réparation définitive doit suivre rapidement pour garantir l'étanchéité durable de votre toit.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Ma fuite est-elle couverte par mon assurance ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>De nombreux dégâts des eaux liés à la toiture sont pris en charge par l'assurance habitation. Nous fournissons un rapport et un devis détaillés utiles à votre déclaration de sinistre.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">Combien coûte une intervention d'urgence ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Le coût dépend de la nature de la fuite et de l'accès. Nous vous communiquons un devis transparent avant toute réparation, même en urgence.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Intervenez-vous le week-end et les jours fériés ?</summary>
+                    <div class="faq-answer"><p>Oui, notre service d'urgence est disponible 7j/7 dans l'Eure-et-Loir (28) pour les fuites et sinistres nécessitant une intervention rapide.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Que faire en attendant votre arrivée ?</summary>
+                    <div class="faq-answer"><p>Placez des récipients sous les fuites, coupez l'électricité de la zone touchée si nécessaire, et éloignez les meubles et objets de valeur. Nous vous guidons par téléphone dès votre appel.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Une bâche provisoire suffit-elle ?</summary>
+                    <div class="faq-answer"><p>La mise hors d'eau (bâchage) stoppe l'urgence, mais elle est temporaire. Une réparation définitive doit suivre rapidement pour garantir l'étanchéité durable de votre toit.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Ma fuite est-elle couverte par mon assurance ?</summary>
+                    <div class="faq-answer"><p>De nombreux dégâts des eaux liés à la toiture sont pris en charge par l'assurance habitation. Nous fournissons un rapport et un devis détaillés utiles à votre déclaration de sinistre.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Combien coûte une intervention d'urgence ?</summary>
+                    <div class="faq-answer"><p>Le coût dépend de la nature de la fuite et de l'accès. Nous vous communiquons un devis transparent avant toute réparation, même en urgence.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -641,20 +641,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>

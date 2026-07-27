@@ -428,26 +428,26 @@
             <h2>Questions Fréquentes Sur Votre Devis Toiture</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de demander votre devis dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">Le devis toiture est-il vraiment gratuit ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>Oui, tous nos devis sont 100 % gratuits et sans engagement partout dans l'Eure-et-Loir (28). Nous nous déplaçons pour évaluer précisément vos travaux — réparation, rénovation, ravalement de façade — avant de vous remettre un chiffrage clair.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">Sous combien de temps vais-je recevoir mon devis ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Après notre visite technique, vous recevez votre devis détaillé sous 24 à 48h. Pour une urgence (fuite toiture, sinistre), nous pouvons vous communiquer une première estimation par téléphone dès votre appel.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">Que contient un devis toiture détaillé ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>Chaque devis précise la nature des travaux, les matériaux, la main-d'œuvre et le prix au m². Vous savez exactement ce que vous payez, sans surprise ni frais cachés, que ce soit pour une réfection, une isolation ou un nettoyage de toiture.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Le déplacement pour établir le devis est-il payant ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>Non, le déplacement et l'établissement du devis sont entièrement gratuits partout dans l'Eure-et-Loir (28), à Chartres et dans les communes environnantes, quel que soit le type de travaux à chiffrer.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">Suis-je engagé si je demande un devis ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Non, un devis n'a aucune valeur d'engagement tant que vous ne l'avez pas signé. Vous êtes libre de le comparer et de prendre votre décision à votre rythme, sans aucune obligation.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Le devis toiture est-il vraiment gratuit ?</summary>
+                    <div class="faq-answer"><p>Oui, tous nos devis sont 100 % gratuits et sans engagement partout dans l'Eure-et-Loir (28). Nous nous déplaçons pour évaluer précisément vos travaux — réparation, rénovation, ravalement de façade — avant de vous remettre un chiffrage clair.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Sous combien de temps vais-je recevoir mon devis ?</summary>
+                    <div class="faq-answer"><p>Après notre visite technique, vous recevez votre devis détaillé sous 24 à 48h. Pour une urgence (fuite toiture, sinistre), nous pouvons vous communiquer une première estimation par téléphone dès votre appel.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Que contient un devis toiture détaillé ?</summary>
+                    <div class="faq-answer"><p>Chaque devis précise la nature des travaux, les matériaux, la main-d'œuvre et le prix au m². Vous savez exactement ce que vous payez, sans surprise ni frais cachés, que ce soit pour une réfection, une isolation ou un nettoyage de toiture.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Le déplacement pour établir le devis est-il payant ?</summary>
+                    <div class="faq-answer"><p>Non, le déplacement et l'établissement du devis sont entièrement gratuits partout dans l'Eure-et-Loir (28), à Chartres et dans les communes environnantes, quel que soit le type de travaux à chiffrer.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Suis-je engagé si je demande un devis ?</summary>
+                    <div class="faq-answer"><p>Non, un devis n'a aucune valeur d'engagement tant que vous ne l'avez pas signé. Vous êtes libre de le comparer et de prendre votre décision à votre rythme, sans aucune obligation.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -710,20 +710,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>

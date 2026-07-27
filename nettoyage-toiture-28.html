@@ -400,26 +400,26 @@
             <h2>Questions fréquentes sur la nettoyage toiture</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de lancer vos travaux dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">À quelle fréquence nettoyer sa toiture ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>Un nettoyage tous les 3 à 5 ans est recommandé, selon l'exposition de votre toit à l'humidité, aux arbres et à l'ombre. Les toitures au nord s'encrassent plus vite.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">Le nettoyage haute pression abîme-t-il les tuiles ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Non, à condition d'utiliser une pression contrôlée et adaptée au matériau. Nos techniciens ajustent la méthode pour ne jamais endommager votre couverture.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">Quelle différence entre nettoyage et traitement hydrofuge ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>Le nettoyage élimine les mousses existantes ; le traitement hydrofuge est une protection appliquée ensuite qui imperméabilise les tuiles et ralentit le retour des végétaux.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Le démoussage évite-t-il les fuites ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>Il réduit fortement les risques : les mousses retiennent l'eau et soulèvent les tuiles. Un toit propre est mieux protégé contre les infiltrations.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">Vos produits sont-ils sans danger ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Nous utilisons des produits professionnels respectueux de vos matériaux et appliqués dans les règles de l'art pour un résultat durable.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">À quelle fréquence nettoyer sa toiture ?</summary>
+                    <div class="faq-answer"><p>Un nettoyage tous les 3 à 5 ans est recommandé, selon l'exposition de votre toit à l'humidité, aux arbres et à l'ombre. Les toitures au nord s'encrassent plus vite.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Le nettoyage haute pression abîme-t-il les tuiles ?</summary>
+                    <div class="faq-answer"><p>Non, à condition d'utiliser une pression contrôlée et adaptée au matériau. Nos techniciens ajustent la méthode pour ne jamais endommager votre couverture.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Quelle différence entre nettoyage et traitement hydrofuge ?</summary>
+                    <div class="faq-answer"><p>Le nettoyage élimine les mousses existantes ; le traitement hydrofuge est une protection appliquée ensuite qui imperméabilise les tuiles et ralentit le retour des végétaux.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Le démoussage évite-t-il les fuites ?</summary>
+                    <div class="faq-answer"><p>Il réduit fortement les risques : les mousses retiennent l'eau et soulèvent les tuiles. Un toit propre est mieux protégé contre les infiltrations.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Vos produits sont-ils sans danger ?</summary>
+                    <div class="faq-answer"><p>Nous utilisons des produits professionnels respectueux de vos matériaux et appliqués dans les règles de l'art pour un résultat durable.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -625,20 +625,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>

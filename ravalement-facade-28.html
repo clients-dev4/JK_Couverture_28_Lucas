@@ -384,26 +384,26 @@
             <h2>Questions fréquentes sur la ravalement de façade</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de lancer vos travaux dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">Tous les combien faut-il ravaler sa façade ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>En moyenne tous les 10 à 15 ans, selon l'exposition et le matériau. Certaines communes imposent un ravalement périodique.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">Ai-je besoin d'une autorisation pour un ravalement ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Une déclaration préalable de travaux en mairie est généralement requise, surtout si l'aspect ou la couleur change. Nous vous accompagnons dans les démarches.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">Le ravalement améliore-t-il l'isolation ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>Un ravalement classique protège la façade ; couplé à une isolation thermique par l'extérieur (ITE), il améliore nettement les performances énergétiques.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Comment traiter les fissures de façade ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>Après diagnostic, les microfissures sont rebouchées et traitées. Les fissures structurelles nécessitent une étude spécifique que nous réalisons avant tout ravalement.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">Quelle finition choisir pour ma façade ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Enduit taloché, gratté, projeté ou peinture : le choix dépend du support et du rendu souhaité. Nous vous conseillons selon le style de votre maison et les règles locales.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Tous les combien faut-il ravaler sa façade ?</summary>
+                    <div class="faq-answer"><p>En moyenne tous les 10 à 15 ans, selon l'exposition et le matériau. Certaines communes imposent un ravalement périodique.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Ai-je besoin d'une autorisation pour un ravalement ?</summary>
+                    <div class="faq-answer"><p>Une déclaration préalable de travaux en mairie est généralement requise, surtout si l'aspect ou la couleur change. Nous vous accompagnons dans les démarches.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Le ravalement améliore-t-il l'isolation ?</summary>
+                    <div class="faq-answer"><p>Un ravalement classique protège la façade ; couplé à une isolation thermique par l'extérieur (ITE), il améliore nettement les performances énergétiques.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Comment traiter les fissures de façade ?</summary>
+                    <div class="faq-answer"><p>Après diagnostic, les microfissures sont rebouchées et traitées. Les fissures structurelles nécessitent une étude spécifique que nous réalisons avant tout ravalement.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Quelle finition choisir pour ma façade ?</summary>
+                    <div class="faq-answer"><p>Enduit taloché, gratté, projeté ou peinture : le choix dépend du support et du rendu souhaité. Nous vous conseillons selon le style de votre maison et les règles locales.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -609,20 +609,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>

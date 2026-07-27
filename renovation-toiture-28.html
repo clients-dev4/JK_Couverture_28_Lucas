@@ -344,26 +344,26 @@
             <h2>Questions fréquentes sur la rénovation toiture</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de lancer vos travaux dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">Quand faut-il rénover sa toiture ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>Une rénovation s'impose généralement lorsque la toiture a plus de 30 à 40 ans, en présence de fuites répétées, de tuiles poreuses, d'une isolation défaillante ou d'une charpente fragilisée.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">Combien de temps durent les travaux de rénovation ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Selon la surface et la complexité, une rénovation complète prend de quelques jours à deux semaines. Nous vous communiquons un planning précis dès la validation du devis.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">Existe-t-il des aides pour rénover ma toiture ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>Oui. En tant qu'entreprise certifiée RGE, nous vous permettons d'accéder à certaines aides à la rénovation énergétique lorsque les travaux incluent l'isolation. Nous vous accompagnons dans vos démarches.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Une toiture rénovée fait-elle baisser mes factures ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>Absolument. Une couverture et une isolation neuves peuvent réduire vos déperditions de chaleur et vos factures d'énergie jusqu'à 30 %.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">Puis-je changer de type de couverture lors de la rénovation ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Oui, sous réserve du respect des règles d'urbanisme locales. Nous vous conseillons sur les matériaux autorisés dans votre commune de l'Eure-et-Loir.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Quand faut-il rénover sa toiture ?</summary>
+                    <div class="faq-answer"><p>Une rénovation s'impose généralement lorsque la toiture a plus de 30 à 40 ans, en présence de fuites répétées, de tuiles poreuses, d'une isolation défaillante ou d'une charpente fragilisée.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Combien de temps durent les travaux de rénovation ?</summary>
+                    <div class="faq-answer"><p>Selon la surface et la complexité, une rénovation complète prend de quelques jours à deux semaines. Nous vous communiquons un planning précis dès la validation du devis.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Existe-t-il des aides pour rénover ma toiture ?</summary>
+                    <div class="faq-answer"><p>Oui. En tant qu'entreprise certifiée RGE, nous vous permettons d'accéder à certaines aides à la rénovation énergétique lorsque les travaux incluent l'isolation. Nous vous accompagnons dans vos démarches.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Une toiture rénovée fait-elle baisser mes factures ?</summary>
+                    <div class="faq-answer"><p>Absolument. Une couverture et une isolation neuves peuvent réduire vos déperditions de chaleur et vos factures d'énergie jusqu'à 30 %.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Puis-je changer de type de couverture lors de la rénovation ?</summary>
+                    <div class="faq-answer"><p>Oui, sous réserve du respect des règles d'urbanisme locales. Nous vous conseillons sur les matériaux autorisés dans votre commune de l'Eure-et-Loir.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -569,20 +569,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>

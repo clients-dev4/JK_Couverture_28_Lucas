@@ -408,26 +408,26 @@
             <h2>Questions fréquentes sur la réparation toiture</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de lancer vos travaux dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">Combien coûte une réparation de toiture dans l'Eure-et-Loir ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>Le prix dépend de l'ampleur des dégâts, du type de couverture et de l'accès au toit. Une réparation ponctuelle (quelques tuiles) est peu coûteuse, tandis qu'une reprise d'étanchéité est plus conséquente. Nous établissons toujours un devis gratuit et détaillé avant toute intervention.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">En combien de temps intervenez-vous en cas de fuite ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Nous intervenons sous 24h pour les réparations urgentes dans tout le département de l'Eure-et-Loir (28). En cas de fuite active, une mise hors d'eau provisoire peut être réalisée immédiatement.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">Vos réparations sont-elles garanties ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>Oui. Toutes nos réparations de toiture bénéficient de la garantie décennale, et nous sommes une entreprise certifiée RGE, gage de sérieux et de qualité.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Faut-il réparer ou refaire entièrement la toiture ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>Tout dépend de l'état général de la couverture. Après notre diagnostic, nous vous conseillons honnêtement : une simple réparation suffit dans la majorité des cas, mais nous vous orienterons vers une rénovation si c'est plus rentable à long terme.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">Intervenez-vous sur tous les types de toiture ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Oui, nous réparons les toitures en tuiles terre cuite ou béton, en ardoises, en zinc ou en bac acier, sur maisons individuelles comme sur bâtiments professionnels.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Combien coûte une réparation de toiture dans l'Eure-et-Loir ?</summary>
+                    <div class="faq-answer"><p>Le prix dépend de l'ampleur des dégâts, du type de couverture et de l'accès au toit. Une réparation ponctuelle (quelques tuiles) est peu coûteuse, tandis qu'une reprise d'étanchéité est plus conséquente. Nous établissons toujours un devis gratuit et détaillé avant toute intervention.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">En combien de temps intervenez-vous en cas de fuite ?</summary>
+                    <div class="faq-answer"><p>Nous intervenons sous 24h pour les réparations urgentes dans tout le département de l'Eure-et-Loir (28). En cas de fuite active, une mise hors d'eau provisoire peut être réalisée immédiatement.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Vos réparations sont-elles garanties ?</summary>
+                    <div class="faq-answer"><p>Oui. Toutes nos réparations de toiture bénéficient de la garantie décennale, et nous sommes une entreprise certifiée RGE, gage de sérieux et de qualité.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Faut-il réparer ou refaire entièrement la toiture ?</summary>
+                    <div class="faq-answer"><p>Tout dépend de l'état général de la couverture. Après notre diagnostic, nous vous conseillons honnêtement : une simple réparation suffit dans la majorité des cas, mais nous vous orienterons vers une rénovation si c'est plus rentable à long terme.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Intervenez-vous sur tous les types de toiture ?</summary>
+                    <div class="faq-answer"><p>Oui, nous réparons les toitures en tuiles terre cuite ou béton, en ardoises, en zinc ou en bac acier, sur maisons individuelles comme sur bâtiments professionnels.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -633,20 +633,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>

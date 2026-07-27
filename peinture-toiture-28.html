@@ -352,26 +352,26 @@
             <h2>Questions fréquentes sur la peinture de toiture</h2>
             <p class="sp-faq-sub">Tout ce que vous devez savoir avant de lancer vos travaux dans l'Eure-et-Loir (28)</p>
             <div class="faq-list">
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-0" aria-expanded="false" aria-controls="faq-a-0">Pourquoi peindre sa toiture ?</button>
-                    <div id="faq-a-0" class="faq-answer" role="region" aria-labelledby="faq-q-0"><p>Peindre sa toiture protège les tuiles des intempéries et des UV, ralentit le retour des mousses et redonne un aspect neuf et esthétique à votre toit. Associée à un traitement hydrofuge, la peinture prolonge nettement la durée de vie de votre couverture.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">Combien coûte une peinture de toiture au m² ?</button>
-                    <div id="faq-a-1" class="faq-answer" role="region" aria-labelledby="faq-q-1"><p>Le prix dépend de la surface, de l'état et du type de tuiles, ainsi que du nombre de couches. Le nettoyage et le traitement préalables entrent aussi en compte. Nous établissons un devis gratuit et détaillé après diagnostic de votre toiture dans l'Eure-et-Loir (28).</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">Quelle peinture utilisez-vous pour les tuiles ?</button>
-                    <div id="faq-a-2" class="faq-answer" role="region" aria-labelledby="faq-q-2"><p>Nous appliquons des peintures spécifiques toiture, microporeuses et hydrofuges, adaptées aux tuiles béton et terre cuite. Elles laissent respirer le support tout en le protégeant de l'eau, garantissant une tenue durable des couleurs.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3">Faut-il nettoyer la toiture avant de la peindre ?</button>
-                    <div id="faq-a-3" class="faq-answer" role="region" aria-labelledby="faq-q-3"><p>Oui, c'est indispensable. Nous procédons systématiquement à un nettoyage et un démoussage complets, suivis d'une couche de fixateur, avant l'application de la peinture. Cette préparation conditionne l'adhérence et la longévité du résultat.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button type="button" class="faq-question" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">La peinture de toiture est-elle durable ?</button>
-                    <div id="faq-a-4" class="faq-answer" role="region" aria-labelledby="faq-q-4"><p>Réalisée dans les règles de l'art avec des produits de qualité, une peinture de toiture tient plusieurs années. Nos travaux sont couverts par la garantie décennale et réalisés par une entreprise certifiée RGE.</p></div>
-                </div>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Pourquoi peindre sa toiture ?</summary>
+                    <div class="faq-answer"><p>Peindre sa toiture protège les tuiles des intempéries et des UV, ralentit le retour des mousses et redonne un aspect neuf et esthétique à votre toit. Associée à un traitement hydrofuge, la peinture prolonge nettement la durée de vie de votre couverture.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Combien coûte une peinture de toiture au m² ?</summary>
+                    <div class="faq-answer"><p>Le prix dépend de la surface, de l'état et du type de tuiles, ainsi que du nombre de couches. Le nettoyage et le traitement préalables entrent aussi en compte. Nous établissons un devis gratuit et détaillé après diagnostic de votre toiture dans l'Eure-et-Loir (28).</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Quelle peinture utilisez-vous pour les tuiles ?</summary>
+                    <div class="faq-answer"><p>Nous appliquons des peintures spécifiques toiture, microporeuses et hydrofuges, adaptées aux tuiles béton et terre cuite. Elles laissent respirer le support tout en le protégeant de l'eau, garantissant une tenue durable des couleurs.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">Faut-il nettoyer la toiture avant de la peindre ?</summary>
+                    <div class="faq-answer"><p>Oui, c'est indispensable. Nous procédons systématiquement à un nettoyage et un démoussage complets, suivis d'une couche de fixateur, avant l'application de la peinture. Cette préparation conditionne l'adhérence et la longévité du résultat.</p></div>
+                </details>
+                <details class="faq-item" name="faq">
+                    <summary class="faq-question">La peinture de toiture est-elle durable ?</summary>
+                    <div class="faq-answer"><p>Réalisée dans les règles de l'art avec des produits de qualité, une peinture de toiture tient plusieurs années. Nos travaux sont couverts par la garantie décennale et réalisés par une entreprise certifiée RGE.</p></div>
+                </details>
             </div>
         </div>
     </section>
@@ -569,20 +569,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (c && m) c.addEventListener('click', function(){ m.classList.remove('active'); document.body.style.overflow=''; });
     if (m) m.addEventListener('click', function(e){ if(e.target===m){ m.classList.remove('active'); document.body.style.overflow=''; } });
     document.querySelectorAll('.mobile-nav-link, .mobile-cta a').forEach(function(l){ l.addEventListener('click', function(){ if(m){ m.classList.remove('active'); document.body.style.overflow=''; } }); });
-});
-document.addEventListener('DOMContentLoaded', function() {
-    var btns = document.querySelectorAll('.faq-question');
-    btns.forEach(function(b){
-        b.addEventListener('click', function(){
-            var expanded = this.getAttribute('aria-expanded') === 'true';
-            var ans = document.getElementById(this.getAttribute('aria-controls'));
-            btns.forEach(function(o){
-                if(o!==b){ o.setAttribute('aria-expanded','false'); var oa=document.getElementById(o.getAttribute('aria-controls')); if(oa){ oa.style.maxHeight='0'; oa.classList.remove('open'); } }
-            });
-            if(expanded){ this.setAttribute('aria-expanded','false'); ans.style.maxHeight='0'; ans.classList.remove('open'); }
-            else { this.setAttribute('aria-expanded','true'); ans.style.maxHeight=ans.scrollHeight+'px'; ans.classList.add('open'); }
-        });
-    });
 });
 </script>
 </body>
