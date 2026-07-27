@@ -1151,3 +1151,12 @@ details.faq-item[open]::details-content{block-size:auto;content-visibility:visib
 input[name="_honey"]{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .map-section{position:relative}
 #sector-info,#reset-map-btn{display:none}
+
+/* Retablit le design responsive d origine : texte redige sur ordinateur, cartes sur mobile */
+@media (min-width:769px){
+.why-choose-desktop{display:block}
+.why-choose-mobile{display:none}
+}
+/* Indicateur +/- de la FAQ : line-height:1 sinon la boite de ligne (24px x 1.6 = 38.4px)
+   depasse le carre de 28px et decale le glyphe malgre le centrage flex */
+.faq-question::after{line-height:1}
